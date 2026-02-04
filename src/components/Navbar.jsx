@@ -1,105 +1,36 @@
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/navbar.css"; // include the .css extension
+import "../styles/navbar.css";
 
 import { StyledMenubar } from "./styled-components";
 import logo1 from "../assets/visistata_logo.png";
 import { downloadBrochure } from "./utils";
+
 const Navbar = () => {
   const navigate = useNavigate();
 
   const items = [
-    {
-      label: "Home",
-      command: () => navigate("/"),
-    },
-    {
-      label: "Courses",
-      command: () => navigate("/courses"),
-    },
+    { label: "Home", command: () => navigate("/") },
+    { label: "Courses", command: () => navigate("/courses") },
     {
       label: "Products",
-      command: () => navigate("/products"),
-          items: [
-                {
-                  label: "Artifical Intelligence"
-                  // command: () => navigate("/ai"),
-                },
-                {
-                  label: "Cyber Security"
-                  // command: () => navigate("/cyber-security"),
-                },
-                {
-                  label: "SaaS"
-                  // command: () => navigate("/saas"),
-                },
-              ],   
-    },
-    {
-      label: "Training Services",
-      command: () => navigate("/training-services"),
-    },
-    {
-      label: "Consulting Services",
-      command: () => navigate("/consulting-services"),
-
       items: [
-        {
-          label: "Technical Services",
-          command: () => navigate("/theming"),
-
-              items: [
-                {
-                  label: "Artifical Intelligence"
-                  // command: () => navigate("/product"),
-                },
-                {
-                  label: "Cyber Security"
-                  // command: () => navigate("/product"),
-                },
-                {
-                  label: "IOT"
-                  // command: () => navigate("/product"),
-                },
-                {
-                  label: "Embedded"
-                  // command: () => navigate("/product"),
-                },
-                {
-                  label: "Data Science"
-                  // command: () => navigate("/product"),
-                },
-                {
-                  label: "Cloud Computing"
-                  // command: () => navigate("/product"),
-                },
-                {
-                  label: "SaaS"
-                  // command: () => navigate("/product"),
-                },
-              ],
-        },
-        {
-          label: "Management Services",
-          command: () => navigate("/theming"),
-        },
-        {
-          label: "Placement Services",
-          command: () => navigate("/theming"),
-        },
-        {
-          label: "Legal Services",
-          command: () => navigate("/theming"),
-        },
-        {
-          label: "GCC/Startup Mentorship",
-          command: () => navigate("/theming"),
-        },
+        { label: "Artificial Intelligence" },
+        { label: "Cyber Security" },
+        { label: "SaaS" },
       ],
     },
+    { label: "Training Services", command: () => navigate("/training-services") },
     {
-      label: "Contact",
-      command: () => navigate("/contact"), // Add path if needed
+      label: "Consulting Services",
+      items: [
+        { label: "Technical Services" },
+        { label: "Management Services" },
+        { label: "Placement Services" },
+        { label: "Legal Services" },
+        { label: "GCC / Startup Mentorship" },
+      ],
     },
+    { label: "Contact", command: () => navigate("/contact") },
     {
       label: "Download Brochure",
       items: [
@@ -108,7 +39,7 @@ const Navbar = () => {
           command: () =>
             downloadBrochure(
               "/brochures/mern-full-stack.xlsx",
-              "MERN-Full-Stack-Brochure.xlsx",
+              "MERN-Full-Stack-Brochure.xlsx"
             ),
         },
         {
@@ -116,50 +47,30 @@ const Navbar = () => {
           command: () =>
             downloadBrochure(
               "/brochures/python-full-stack.xlsx",
-              "Python-Full-Stack-Brochure.xlsx",
-            ),
-        },
-        {
-          label: "Data Analyst",
-          command: () =>
-            downloadBrochure(
-              "/brochures/data-analyst.xlsx",
-              "Data-Analyst-Brochure.xlsx",
-            ),
-        },
-        {
-          label: "Data Science",
-          command: () =>
-            downloadBrochure(
-              "/brochures/data-science.xlsx",
-              "Data-Science-Brochure.xlsx",
+              "Python-Full-Stack-Brochure.xlsx"
             ),
         },
       ],
     },
-    {
-      label: "About Us",
-      command: () => navigate("/about"),
-    },
+    { label: "About Us", command: () => navigate("/about") },
   ];
 
   return (
-    <>
-      <nav className="navbar">
-        <Link to="/" style={{ display: "block" }}>
-          <div className="logo">
-            <img
-              src={logo1}
-              height={64}
-              style={{ display: "inline", verticalAlign: "baseline" }}
-            />
-            {/* <p> unlock ur teck potential</p> */}
-          </div>
-        </Link>
+    <nav className="navbar">
+      {/* LEFT: Logo */}
+      <Link to="/" className="logo-link">
+        <img src={logo1} height={48} alt="Visistata Logo" />
+      </Link>
 
-        <StyledMenubar model={items} />
-      </nav>
-    </>
+      {/* CENTER: Brand */}
+      <span className="brand-name" onClick={() => navigate("/")}>
+        Visistata
+      </span>
+
+      {/* RIGHT: Menu */}
+      <StyledMenubar model={items} />
+    </nav>
   );
 };
+
 export default Navbar;

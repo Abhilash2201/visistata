@@ -2,13 +2,34 @@ ul {
   list-style-type: none;
 }
 
+/* NAVBAR LAYOUT: LEFT | CENTER | RIGHT */
 .navbar {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo | brand | menu */
   align-items: center;
-  padding: 0rem 2rem;
+  padding: 0 2rem;
   background-color: hsl(var(--background));
   border-bottom: 1px solid hsl(var(--border));
   position: sticky;
   top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo-link img {
+  display: block;
+}
+
+/* Center brand */
+.brand-name {
+  text-align: center;
+  font-size: 30px;      /* Increase/decrease size here */
+  font-weight: 700;
+  color: #1d4ed8;       /* Blue */
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.brand-name:hover {
+  color: #1e40af;
 }
