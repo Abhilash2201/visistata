@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/navbar.css"; // include the .css extension
 
 import { StyledMenubar } from "./styled-components";
-import logo1 from "../assets/logo1.png";
+import logo1 from "../assets/visistata_logo.png";
 import { downloadBrochure } from "./utils";
 const Navbar = () => {
   const navigate = useNavigate();
@@ -10,7 +10,6 @@ const Navbar = () => {
   const items = [
     {
       label: "Home",
-      // icon: "pi pi-home",
       command: () => navigate("/"),
     },
     {
@@ -18,75 +17,66 @@ const Navbar = () => {
       command: () => navigate("/courses"),
     },
     {
-      label: "Product",
-      command: () => navigate("/product"),
+      label: "Products",
+      command: () => navigate("/products"),
+          items: [
+                {
+                  label: "Artifical Intelligence"
+                  // command: () => navigate("/ai"),
+                },
+                {
+                  label: "Cyber Security"
+                  // command: () => navigate("/cyber-security"),
+                },
+                {
+                  label: "SaaS"
+                  // command: () => navigate("/saas"),
+                },
+              ],   
     },
     {
       label: "Training Services",
-      command: () => navigate("/services"),
-
-      // items: [
-      //   {
-      //     label: "College Training",
-      //     command: () => navigate("/theming"),
-      //   },
-      //   {
-      //     label: "Corporate Training",
-      //     command: () => navigate("/theming"),
-      //   },
-      //   {
-      //     label: "Internship and Projects",
-      //     command: () => navigate("/theming"),
-      //   },
-      //   {
-      //     label: "School Training",
-      //     command: () => navigate("/theming"),
-      //   },
-      //   {
-      //     label: "Hire from us",
-      //     command: () => navigate("/theming"),
-      //   },
-      // ],
+      command: () => navigate("/training-services"),
     },
     {
       label: "Consulting Services",
-      command: () => navigate("/Consulting services"),
+      command: () => navigate("/consulting-services"),
 
       items: [
         {
           label: "Technical Services",
           command: () => navigate("/theming"),
 
-          items: [
-            {
-              label: "Artifical Intelligence"
-              // command: () => navigate("/product"),
-            },
-            {
-              label: "Cyber Security"
-              // command: () => navigate("/product"),
-            },
-            {
-              label: "IOT"
-              // command: () => navigate("/product"),
-            },
-            {
-              label: "Embedded"
-              // command: () => navigate("/product"),
-            },
-            {
-              label: "Data Science"
-              // command: () => navigate("/product"),
-            },
-            {
-              label: "Cloud Computing"
-              // command: () => navigate("/product"),
-            },
-            {
-              label: "SaaS"
-              // command: () => navigate("/product"),
-            },
-          ],
+              items: [
+                {
+                  label: "Artifical Intelligence"
+                  // command: () => navigate("/product"),
+                },
+                {
+                  label: "Cyber Security"
+                  // command: () => navigate("/product"),
+                },
+                {
+                  label: "IOT"
+                  // command: () => navigate("/product"),
+                },
+                {
+                  label: "Embedded"
+                  // command: () => navigate("/product"),
+                },
+                {
+                  label: "Data Science"
+                  // command: () => navigate("/product"),
+                },
+                {
+                  label: "Cloud Computing"
+                  // command: () => navigate("/product"),
+                },
+                {
+                  label: "SaaS"
+                  // command: () => navigate("/product"),
+                },
+              ],
         },
         {
           label: "Management Services",
@@ -145,24 +135,6 @@ const Navbar = () => {
               "Data-Science-Brochure.xlsx",
             ),
         },
-        // {
-        //   label: "React JS",
-        //   command: () =>
-        //     downloadBrochure(
-        //       "/brochures/react-js.xlsx",
-        //       "React-JS-Brochure.xlsx",
-        //     ),
-        // },
-
-
-        // {
-        //   label: "Automation Testing",
-        //   command: () =>
-        //     downloadBrochure(
-        //       "/brochures/automation-testing.xlsx",
-        //       "Automation-Testing-Brochure.xlsx",
-        //     ),
-        // },
       ],
     },
     {
