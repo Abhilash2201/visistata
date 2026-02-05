@@ -10,7 +10,8 @@ const About = lazy(() => import("./pages/About"));
 const Courses = lazy(() => import("./pages/Courses"));
 const Testimonials = lazy(() => import("./pages/Testmonials"));
 const Contact = lazy(() => import("./pages/Contact"));
-const Services = lazy(() => import("./pages/Services"));
+const TrainingServices = lazy(() => import("./pages/TrainingServices"));
+const Products = lazy(() => import("./pages/Products"));
 
 // Optional: A simple full-screen or skeleton loader
 const Loader = () => (
@@ -57,7 +58,8 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/training-services" element={<TrainingServices />} />
+          {/*<Route path="/products" element={<Products />} /> */}
 
           {/* Optional: Redirect unknown routes */}
           <Route path="*" element={<Navigate to="/" replace />} />
